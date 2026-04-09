@@ -14,12 +14,10 @@ class _AuthenticationScreenState extends State<AuthenticationScreen>
   late TabController _tabController;
   final AuthService _authService = AuthService();
 
-  // Sign-in controllers
   final _signInEmailController = TextEditingController();
   final _signInPasswordController = TextEditingController();
   final _signInFormKey = GlobalKey<FormState>();
 
-  // Register controllers
   final _registerEmailController = TextEditingController();
   final _registerPasswordController = TextEditingController();
   final _registerConfirmPasswordController = TextEditingController();
@@ -62,7 +60,6 @@ class _AuthenticationScreenState extends State<AuthenticationScreen>
         email: _signInEmailController.text,
         password: _signInPasswordController.text,
       );
-      // AuthWrapper will handle navigation
     } catch (e) {
       setState(() => _signInError = e.toString());
     } finally {
@@ -81,7 +78,6 @@ class _AuthenticationScreenState extends State<AuthenticationScreen>
         email: _registerEmailController.text,
         password: _registerPasswordController.text,
       );
-      // AuthWrapper will handle navigation
     } catch (e) {
       setState(() => _registerError = e.toString());
     } finally {

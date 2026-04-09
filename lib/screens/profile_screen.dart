@@ -44,7 +44,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() => _isSigningOut = true);
     try {
       await _authService.signOut();
-      // AuthWrapper handles navigation
     } catch (e) {
       if (mounted) {
         _showSnackBar(e.toString(), isError: true);

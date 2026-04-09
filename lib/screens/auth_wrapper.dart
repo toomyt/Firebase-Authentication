@@ -14,7 +14,6 @@ class AuthWrapper extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: _authService.authStateChanges,
       builder: (context, snapshot) {
-        // Show loading while checking auth state
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             backgroundColor: Color(0xFF6C63FF),
@@ -38,12 +37,10 @@ class AuthWrapper extends StatelessWidget {
           );
         }
 
-        // User is authenticated → show Profile
         if (snapshot.hasData && snapshot.data != null) {
           return ProfileScreen(user: snapshot.data!);
         }
 
-        // User is not authenticated → show Auth
         return const AuthenticationScreen();
       },
     );
